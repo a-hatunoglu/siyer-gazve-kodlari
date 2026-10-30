@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="KPSS DHBT siyer: gazve ve seriyyelerin kodları, tarihleri, önemli ayrıntıları ve test kartları.">
+<meta name="theme-color" content="#f3f4f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10141b" media="(prefers-color-scheme: dark)">
+<title>Gazve ve Seriyye Kodları</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>
+/* Layout: mobil öncelikli tek sütun ders defteri; üstte yapışkan bölüm şeridi, yıl ızgarasında ilk satır asal yıllar. Geniş ekran yalnızca ferahlatır. */
+:root {
+  --bg: #f3f4f1;
+  --surface: #ffffff;
+  --fg: #1b2230;
+  --muted: #5a6375;
+  --rule: #d6dae1;
+  --accent: #23498a;
+  --accent-soft: #e3e9f4;
+  --good: #2f6b45;
+  --bad: #9a3b2e;
+  --f-display: "Alegreya", Georgia, "Times New Roman", serif;
+  --f-body: "Alegreya Sans", "Segoe UI", system-ui, sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #10141b; --surface: #171d27; --fg: #e5e8ee; --muted: #9ba4b4;
+    --rule: #2b3340; --accent: #93b4ec; --accent-soft: #1d2a40;
+    --good: #7cc497; --bad: #ec9a8c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #10141b; --surface: #171d27; --fg: #e5e8ee; --muted: #9ba4b4;
+  --rule: #2b3340; --accent: #93b4ec; --accent-soft: #1d2a40;
+  --good: #7cc497; --bad: #ec9a8c; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--f-body); font-size: 1.0625rem; line-height: 1.55;
+  -webkit-tap-highlight-color: transparent;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  background: var(--bg); z-index: 10;
+}
+.wrap {
+  max-width: 46rem; margin: 0 auto;
+  padding-block: 1.25rem 3rem;
+  padding-left: var(--gutter-l);
+  padding-right: var(--gutter-r);
+  display: flex; flex-direction: column; gap: 2.25rem;
+}
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; line-height: 1.15; margin: 0; }
+h1 { font-size: 2.3rem; font-weight: 800; letter-spacing: -0.01em; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.2rem; font-weight: 700; }
+p { margin: 0; }
+section { display: flex; flex-direction: column; gap: 0.9rem; scroll-margin-top: 4rem; }
+.eyebrow {
+  font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--muted); font-weight: 700;
+}
+.lead { color: var(--muted); font-size: 1.02rem; max-width: 38rem; }
+.num { font-family: var(--f-data); font-variant-numeric: tabular-nums; font-size: 0.9em; }
+a { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+header { display: flex; flex-direction: column; gap: 0.6rem; }
+
+/* Yapışkan bölüm şeridi: telefonda yatay kayar */
+.toc {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--bg); border-bottom: 1px solid var(--rule);
+  margin-left: calc(-1 * var(--gutter-l)); margin-right: calc(-1 * var(--gutter-r));
+  margin-block: -1.25rem -0.5rem;
+}
+.toc ul {
+  list-style: none; margin: 0; display: flex; gap: 0.45rem;
+  overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  padding-block: 0.55rem; padding-left: var(--gutter-l); padding-right: var(--gutter-r);
+}
+.toc ul::-webkit-scrollbar { display: none; }
+.toc a {
+  display: inline-flex; align-items: center; min-height: 2.5rem; padding: 0 0.85rem;
+  border: 1px solid var(--rule); border-radius: 999px; text-decoration: none;
+  color: var(--fg); font-size: 0.95rem; background: var(--surface); white-space: nowrap;
+}
+.toc a:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Yıl ızgarası: ilk satır 2·3·5·7 */
+.years { display: flex; flex-direction: column; gap: 0.75rem; }
+.strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.4rem 0.4rem; }
+.yr {
+  min-width: 0; display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 0.5rem 0.15rem 0.6rem; border-top: 3px solid var(--rule);
+}
+.yr b {
+  font-family: var(--f-display); font-weight: 800; font-size: 2.7rem;
+  line-height: 1; color: var(--fg);
+}
+.yr span { font-size: 0.95rem; font-weight: 700; }
+.yr small { color: var(--muted); font-size: 0.78rem; }
+.yr.prime { border-top-color: var(--accent); }
+.yr.prime b { color: var(--accent); }
+.strip-key { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.95rem; color: var(--muted); }
+.strip-key strong { color: var(--fg); }
+
+/* Kod kutuları */
+.codes { display: grid; gap: 0.75rem; }
+.code {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 10px;
+  padding: 0.9rem 1rem; display: flex; flex-direction: column; gap: 0.35rem; min-width: 0;
+}
+.code .phrase { font-family: var(--f-display); font-size: 1.22rem; font-weight: 700; line-height: 1.3; }
+.code .phrase u { text-decoration: none; color: var(--accent); border-bottom: 2px solid var(--accent); }
+.code .key { color: var(--muted); font-size: 0.95rem; }
+
+/* Hikâye */
+.story { display: flex; flex-direction: column; gap: 1.4rem; }
+.scene { display: grid; grid-template-columns: 2.1rem 1fr; gap: 0.25rem 0.75rem; }
+.scene .y {
+  font-family: var(--f-display); font-weight: 800; font-size: 1.85rem; line-height: 1;
+  color: var(--accent); text-align: right; padding-top: 0.1rem;
+}
+.scene > div { min-width: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+.scene h3 { font-size: 1.12rem; }
+mark { background: var(--accent-soft); color: var(--fg); padding: 0 0.15em; border-radius: 3px; }
+
+/* Gazve kartları */
+.cards { display: flex; flex-direction: column; gap: 0.9rem; }
+.g {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 10px;
+  padding: 1rem; display: flex; flex-direction: column; gap: 0.6rem;
+}
+.g-head { display: flex; flex-direction: column; gap: 0.15rem; }
+.g-date { font-family: var(--f-data); font-size: 0.82rem; color: var(--accent); }
+.g dl { margin: 0; display: grid; grid-template-columns: 1fr; gap: 0.1rem; }
+.g dt {
+  color: var(--muted); font-size: 0.74rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; margin-top: 0.45rem;
+}
+.g dt:first-child { margin-top: 0; }
+.g dd { margin: 0; min-width: 0; }
+.g .hook {
+  border-top: 1px dashed var(--rule); padding-top: 0.55rem;
+  font-family: var(--f-display); font-style: italic; font-size: 1.05rem;
+}
+.g .hook::before { content: "Kod: "; font-style: normal; font-weight: 700; color: var(--accent); }
+.tag {
+  font-family: var(--f-body); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--accent); border: 1px solid var(--accent); border-radius: 4px; padding: 0 0.35rem;
+  margin-left: 0.35rem; vertical-align: 0.2em;
+}
+
+/* Tablolar */
+.tbl { overflow-x: auto; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { text-align: left; padding: 0.5rem 0.55rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th { font-family: var(--f-display); font-size: 0.98rem; background: var(--accent-soft); }
+td.n { font-family: var(--f-data); font-variant-numeric: tabular-nums; font-size: 0.84rem; }
+.cmp td:first-child { color: var(--muted); }
+
+/* Telefonda çok sütunlu listeler kart gibi alt alta */
+.stack thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.stack tr { display: flex; flex-direction: column; gap: 0.15rem; padding: 0.75rem 0.9rem; border-bottom: 1px solid var(--rule); }
+.stack tr:last-child { border-bottom: 0; }
+.stack td { display: block; padding: 0; border: 0; }
+.stack td:first-child { font-family: var(--f-display); font-weight: 700; font-size: 1.08rem; }
+.stack td.n { color: var(--accent); }
+.stack td[data-label]::before { content: attr(data-label) ": "; color: var(--muted); }
+
+/* Listeler */
+.list { margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.4rem; }
+
+/* Test kartları */
+.quiz-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+.btn {
+  font: inherit; font-size: 0.95rem; cursor: pointer; min-height: 2.75rem; padding: 0 0.9rem;
+  border-radius: 8px; border: 1px solid var(--rule); background: var(--surface); color: var(--fg);
+  touch-action: manipulation;
+}
+.btn:hover { border-color: var(--accent); }
+.btn[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.score { grid-column: 1 / -1; font-family: var(--f-data); font-size: 0.82rem; color: var(--muted); }
+.qs { display: flex; flex-direction: column; gap: 0.6rem; }
+.q {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 10px;
+  display: flex; flex-direction: column;
+}
+.q.known { border-left: 4px solid var(--good); }
+.q.again { border-left: 4px solid var(--bad); }
+.q-ask {
+  font: inherit; text-align: left; background: none; border: 0; padding: 0.9rem 1rem; color: var(--fg);
+  cursor: pointer; font-weight: 700; display: flex; gap: 0.6rem; min-height: 3rem;
+  touch-action: manipulation;
+}
+.q-ask .i { font-family: var(--f-data); color: var(--muted); font-weight: 500; font-size: 0.82rem; padding-top: 0.15rem; }
+.q > div { padding: 0 1rem 0.9rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.q-ans { color: var(--fg); border-top: 1px dashed var(--rule); padding-top: 0.6rem; }
+.q-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+.q-row .ok { color: var(--good); }
+.q-row .no { color: var(--bad); }
+.hint { color: var(--muted); font-size: 0.92rem; }
+
+/* Plan */
+.plan { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+.plan li { display: flex; flex-direction: column; gap: 0.1rem; }
+.plan .t { font-family: var(--f-data); font-size: 0.82rem; color: var(--accent); }
+.note {
+  border-left: 3px solid var(--accent); padding: 0.4rem 0 0.4rem 0.9rem;
+  color: var(--muted); font-size: 0.95rem;
+}
+
+/* Geniş ekran */
+@media (min-width: 640px) {
+  .wrap { padding-block: 2rem 4rem; gap: 3rem; }
+  .toc { margin-block: -2rem -1rem; }
+  h1 { font-size: 3.2rem; }
+  h2 { font-size: 1.75rem; }
+  .strip { grid-template-columns: repeat(7, 1fr); }
+  .yr b { font-size: 3.4rem; }
+  .strip-key { flex-direction: row; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+  .scene { grid-template-columns: 3rem 1fr; gap: 0.25rem 0.9rem; }
+  .scene .y { font-size: 2.2rem; }
+  .g { padding: 1.1rem 1.15rem; }
+  .g-head { flex-direction: row; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1rem; }
+  .g dl { grid-template-columns: 7.5rem 1fr; gap: 0.4rem 0.9rem; }
+  .g dt { margin-top: 0; font-size: 0.8rem; padding-top: 0.15rem; }
+  table { font-size: 0.95rem; }
+  th, td { padding: 0.55rem 0.7rem; }
+  .cmp td:first-child, td.n { white-space: nowrap; }
+  .stack thead { position: static; width: auto; height: auto; overflow: visible; clip: auto; display: table-header-group; }
+  .stack tr { display: table-row; padding: 0; }
+  .stack td { display: table-cell; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--rule); }
+  .stack tr:last-child td { border-bottom: 0; }
+  .stack td:first-child { font-family: var(--f-body); font-weight: 400; font-size: inherit; }
+  .stack td.n { color: inherit; }
+  .stack td[data-label]::before { content: none; }
+  .quiz-bar { display: flex; flex-wrap: wrap; align-items: center; }
+  .score { margin-left: auto; }
+  .q-row { display: flex; }
+  .plan li { display: grid; grid-template-columns: 6.5rem 1fr; gap: 0.75rem; }
+  .plan .t { padding-top: 0.15rem; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="toc" aria-label="Bölümler">
+    <ul>
+      <li><a href="#kodlar">Kodlar</a></li>
+      <li><a href="#hikaye">Hikâye</a></li>
+      <li><a href="#gazveler">Gazveler</a></li>
+      <li><a href="#karsilastir">Karşılaştırma</a></li>
+      <li><a href="#kucuk">Küçük gazveler</a></li>
+      <li><a href="#seriyyeler">Seriyyeler</a></li>
+      <li><a href="#ilkler">İlkler ve sureler</a></li>
+      <li><a href="#test">Kendini test et</a></li>
+      <li><a href="#plan">Bugünkü plan</a></li>
+    </ul>
+  </nav>
+
+<header>
+  <p class="eyebrow">Siyer · KPSS DHBT 2026</p>
+  <h1>Gazve ve Seriyye Kodları</h1>
+  <p class="lead">Önemli savaşların sırası, tarihi ve sınavda soru olan ayrıntıları; önce kodlar, sonra hikâye, en sonda kendini test et.</p>
+</header>
+
+<section class="years" aria-labelledby="yil-baslik">
+  <h2 id="yil-baslik">Ana yol: hicrî yıllar</h2>
+  <div class="strip" role="list">
+    <div class="yr prime" role="listitem"><b>2</b><span>Bedir</span><small>Ramazan</small></div>
+    <div class="yr prime" role="listitem"><b>3</b><span>Uhud</span><small>Şevval</small></div>
+    <div class="yr prime" role="listitem"><b>5</b><span>Hendek</span><small>Şevval</small></div>
+    <div class="yr prime" role="listitem"><b>7</b><span>Hayber</span><small>Muharrem–Safer</small></div>
+    <div class="yr" role="listitem"><b>8</b><span>Fetih</span><small>Ramazan</small></div>
+    <div class="yr" role="listitem"><b>8</b><span>Huneyn</span><small>Şevval</small></div>
+    <div class="yr" role="listitem"><b>9</b><span>Tebük</span><small>Recep</small></div>
+  </div>
+  <div class="strip-key">
+    <span><strong>2 · 3 · 5 · 7</strong> ilk dört asal sayı</span>
+    <span><strong>8 · 8</strong> ikizler: önce Fetih, sonra Huneyn (ardından Tâif kuşatması)</span>
+    <span><strong>9</strong> son gazve</span>
+  </div>
+</section>
+
+<section id="kodlar" aria-labelledby="kod-baslik">
+  <h2 id="kod-baslik">Kodlar</h2>
+  <p class="lead">Her cümlede altı çizili harf bir savaşın baş harfi. Sıra kronolojik.</p>
+  <div class="codes">
+    <div class="code">
+      <p class="eyebrow">7 büyük gazve</p>
+      <p class="phrase"><u>B</u>u <u>U</u>zun <u>H</u>ikâyeyi <u>H</u>afızam <u>F</u>azla <u>H</u>ızlı <u>T</u>utar.</p>
+      <p class="key">Bedir · Uhud · Hendek · Hayber · Fetih · Huneyn · Tebük</p>
+    </div>
+    <div class="code">
+      <p class="eyebrow">İçinde çarpışma olan 9 gazve</p>
+      <p class="phrase"><u>B</u>edirli <u>U</u>sta, <u>M</u>ısır <u>H</u>asadında <u>K</u>ahve <u>H</u>azırlar; <u>F</u>incanı <u>H</u>ep <u>T</u>atlı.</p>
+      <p class="key">Bedir · Uhud · Mustalık (Müreysî) · Hendek · Kurayza · Hayber · Fetih · Huneyn · Tâif</p>
+    </div>
+    <div class="code">
+      <p class="eyebrow">Ay kodları</p>
+      <p class="phrase">Ramazan'da iki zafer; Şevval'de üç kez "<u>Uhh</u>".</p>
+      <p class="key">Ramazan: Bedir (2) ve Mekke'nin Fethi (8). Şevval: <b>U</b>hud, <b>H</b>endek, <b>H</b>uneyn, üçü de zor anlar.</p>
+    </div>
+    <div class="code">
+      <p class="eyebrow">5. yılın üç olayı</p>
+      <p class="phrase">5. yılda <u>M</u>a<u>H</u>-<u>K</u>ûm oldular.</p>
+      <p class="key">Mustalık (Şaban) → Hendek (Şevval) → Kurayza (Zilkade'de kuşatıldı, Zilhicce'de teslim oldu; hakem kararıyla "mahkûm")</p>
+    </div>
+    <div class="code">
+      <p class="eyebrow">Medine Yahudileri: 3K</p>
+      <p class="phrase">Kaynuka <u>kadın</u>a, Nadîr <u>kaya</u>ya, Kurayza <u>kalleşlik</u>e yandı.</p>
+      <p class="key">Üçü de Medine Sözleşmesi'ni bozdu. Kaynuka 2 H.: çarşıda Müslüman kadını taciz ettiler, onu koruyan sahabiyi şehit ettiler → Ezriât'a (Şam) sürgün · Nadîr 4 H.: Hz. Peygamber'in üstüne taş atma girişimi → çoğu Suriye'ye, bir kısmı Hayber'e (sınavda genelde "Hayber") · Kurayza 5 H.: Hendek'te ihanet → hakem Sa'd b. Muâz</p>
+    </div>
+    <div class="code">
+      <p class="eyebrow">İlk seriyyeler: S-O-G</p>
+      <p class="phrase">Önce <u>S</u>ancak, sonra <u>O</u>k, sonra <u>G</u>animet.</p>
+      <p class="key">Hamza seriyyesi: ilk sancak (bir rivayette Ubeyde'ninki) · Ubeyde b. Hâris seriyyesi: ilk ok (Sa'd b. Ebû Vakkâs attı) · Nahle seriyyesi: ilk ganimet, ilk esir</p>
+    </div>
+    <div class="code">
+      <p class="eyebrow">Mûte'nin komutanları</p>
+      <p class="phrase"><u>Ze</u>-<u>Ca</u>-<u>Re</u>, sonra Hâlid.</p>
+      <p class="key">Zeyd b. Hârise → Ca'fer b. Ebû Tâlib → Abdullah b. Revâha → Hâlid b. Velîd ("Seyfullah")</p>
+    </div>
+    <div class="code">
+      <p class="eyebrow">Tebük'te geri kalan üç sahabi</p>
+      <p class="phrase">50 gün <u>Ka</u>-<u>Hi</u>-<u>M</u> çektiler.</p>
+      <p class="key">Ka'b b. Mâlik · Hilâl b. Ümeyye · Mürâre b. Rebî. 50 gün konuşulmadı, tövbeleri kabul edildi (Tevbe 118).</p>
+    </div>
+  </div>
+</section>
+
+<section id="hikaye" aria-labelledby="hikaye-baslik">
+  <h2 id="hikaye-baslik">Hikâye: Medine'den Tebük'e</h2>
+  <p class="lead">Sahneleri gözünde canlandırarak oku. Sayılar ve isimler sahnedeki nesnelere bağlı; sınavda o nesneyi hatırla.</p>
+  <div class="story">
+    <div class="scene">
+      <div class="y">1</div>
+      <div>
+        <h3>Sancak, ok, mektup</h3>
+        <p>Hicretin ilk yılında Medine'de muhacir ile ensar <mark>kardeş ilan edilir (Muâhât)</mark>; Müslümanlar ile Yahudiler arasında <mark>Medine Sözleşmesi</mark> yapılır. Yine o yıl, Ramazan'da <mark>Hz. Hamza</mark> deniz kıyısına (Sîfülbahr) gider; elinde İslam'ın <mark>ilk sancağı</mark> var, ama araya biri girer ve savaş olmaz. Bir ay sonra, Şevval'de, <mark>Ubeyde b. Hâris</mark>'in birliğinde <mark>Sa'd b. Ebû Vakkâs</mark> yayını gerer: İslam'da atılan <mark>ilk ok</mark>. 2. yılın Recep ayında <mark>Abdullah b. Cahş</mark>'a mühürlü bir mektup verilir: "İki gün sonra aç." Mektup onu <mark>Nahle</mark>'ye götürür; orada <mark>ilk ganimet</mark> ve <mark>ilk esir</mark> alınır. Haram ayda olduğu için tartışılır, <mark>Bakara 217</mark> iner.</p>
+      </div>
+    </div>
+    <div class="scene">
+      <div class="y">2</div>
+      <div>
+        <h3>Bedir lokantasında iftar</h3>
+        <p><mark>17 Ramazan</mark> akşamı "Bedir" adlı bir lokantadasın; masa numarası <mark>313</mark>. Aslında Ebû Süfyan'ın kervanı için gelmiştin ama kervan kaçmış, yerine Ebû Cehil 1000 kişiyle oturmuş. Garson <mark>Hubâb b. Münzir</mark> "Kuyuların başına geçelim" der; <mark>Sa'd b. Muâz</mark> Peygamber'e gölgelik kurar. Kapıdan üç kişi girer: <mark>Hamza, Ali, Ubeyde</mark>, karşılarında <mark>Utbe, Şeybe, Velîd</mark>. Güreş biter. Hesap gelir: <mark>14</mark> tabak eksik (şehit), <mark>70</mark> sandalye devrilmiş (ölü), <mark>70</mark> kişi bulaşığa bağlanmış (esir). Parası olmayan esir, <mark>10 çocuğa okuma yazma</mark> öğretip çıkar. Menünün adı <mark>Enfâl</mark>: ganimetler.</p>
+      </div>
+    </div>
+    <div class="scene">
+      <div class="y">3</div>
+      <div>
+        <h3>Uhud dağında kamp</h3>
+        <p>Bir yıl sonra, Şevval'de, <mark>3000</mark> kişilik müşrik ordusu Bedir'in öcünü almaya gelir. Peygamber Medine'de kalmayı ister; gençler ve Hz. Hamza dışarı çıkmak isteyince <mark>çoğunluğa uyulur</mark>. <mark>1000</mark> kişiyle çıkılır; yolda <mark>Abdullah b. Übey</mark> <mark>300</mark> kişiyi alıp döner, <mark>700</mark> kalınır. <mark>Ayneyn</mark> tepesine <mark>50 okçu</mark> çıkar; başlarında cübbeli <mark>Abdullah b. Cübeyr</mark>. <mark>Peygamber</mark>'in emri kesin: "Ne olursa olsun yerinizden ayrılmayın." Okçular ganimeti görünce iner; <mark>Hâlid b. Velîd</mark>'in atlıları tepeyi dolanıp arkadan vurur. <mark>Vahşî</mark>'nin mızrağı <mark>Hz. Hamza</mark>'yı düşürür, şehitlerin efendisi olur. Sancaktar <mark>Mus'ab</mark> şehit düşer, <mark>Hanzala</mark>'yı melekler yıkar. <mark>70</mark> şehit. Peygamber'in dişi kırılır. Ertesi gün <mark>Hamrâülesed</mark>'e kadar takip. Olayın anlatıldığı yer <mark>Âl-i İmrân</mark>.</p>
+      </div>
+    </div>
+    <div class="scene">
+      <div class="y">4</div>
+      <div>
+        <h3>Safer'in iki yarası ve düşen taş</h3>
+        <p>4. yılın Safer ayında iki ihanet: <mark>Recî</mark>'de <mark>Hubeyb b. Adî</mark> Mekke'ye satılır, öldürülmeden önce <mark>iki rekât namaz</mark> kılar. <mark>Bi'r-i Maûne</mark>'de <mark>70 kurrâ</mark> şehit edilir; Peygamber <mark>bir ay kunut</mark> okur. Kurtulanlardan <mark>Amr b. Ümeyye</mark>'nin dönüş yolunda öldürdüğü iki Âmiroğlu'nun diyeti için Peygamber <mark>Benî Nadîr</mark>'e gider; duvarın dibinde otururken yukarıdan <mark>taş</mark> atılmak istenir. Sonuç: Nadîr sürülür, bir kısmı <mark>Hayber'e</mark> yerleşir, <mark>Haşr</mark> suresi iner. Ertesi yılın Muharrem'inde (bir rivayette aynı yıl) <mark>Zâtürrikâ</mark>'da ayaklara bez sarılır ve <mark>korku namazı</mark> kılınır.</p>
+      </div>
+    </div>
+    <div class="scene">
+      <div class="y">5</div>
+      <div>
+        <h3>Gerdanlık, kürek, hakem</h3>
+        <p>Şaban'da <mark>Benî Mustalık</mark> dönüşü su başında muhacir ile ensar kavgaya tutuşur; Peygamber bunu <mark>cahiliye asabiyeti</mark> diye kınar. Aynı dönüşte Hz. Âişe <mark>gerdanlığını</mark> arar, kafile gider: <mark>İfk</mark> iftirası, cevabı <mark>Nûr</mark> suresi. Şevval'de <mark>Selmân-ı Fârisî</mark> elinde kürekle gelir: "Hendek kazalım." <mark>10–12.000</mark> kişilik Ahzâb, karşısında <mark>3000</mark> Müslüman. Hendeği atlayan <mark>Amr b. Abdüved</mark>'i <mark>Hz. Ali</mark> yere serer; <mark>Nuaym b. Mes'ûd</mark> müttefiklerin arasına fitil sokar; gece soğuk bir <mark>rüzgâr</mark> çadırları söker. Zilkade'de ihanet eden <mark>Kurayza</mark> kuşatılır, hakem <mark>Sa'd b. Muâz</mark> olur. Sure: <mark>Ahzâb</mark>.</p>
+      </div>
+    </div>
+    <div class="scene">
+      <div class="y">6</div>
+      <div>
+        <h3>İhramla gelen ordu</h3>
+        <p>Savaş değil, umre: <mark>1400</mark> kişi ihramla <mark>Hudeybiye</mark>'de durur. <mark>Hz. Osman</mark> elçi gider, "öldürüldü" haberi gelir; bir <mark>ağacın altında</mark> <mark>Rıdvan Biatı</mark> yapılır. Kureyş'ten <mark>Süheyl b. Amr</mark> gelir, antlaşmayı <mark>Hz. Ali</mark> yazar: <mark>10 yıl</mark> savaş yok, bu yıl dönüş, gelecek yıl <mark>3 gün</mark> umre. Dönüşte <mark>Fetih</mark> suresi: "apaçık bir fetih." Sonra Mekke'den kaçan <mark>Ebû Basîr</mark> ve arkadaşları Kureyş kervanlarını vurur; iade maddesinin kaldırılmasını <mark>Mekkeliler kendileri ister</mark>.</p>
+      </div>
+    </div>
+    <div class="scene">
+      <div class="y">7</div>
+      <div>
+        <h3>Hayber'in kale kapısı</h3>
+        <p>Muharrem'de kuzeydeki kaleler. Sancak "Allah'ı ve Resûlü'nü seven" birine, <mark>Hz. Ali</mark>'ye verilir; <mark>Kâmûs</mark> kalesinin kapısını o açar, <mark>Merhab</mark>'ı o yener. Hurmalıklar <mark>yarı yarıya</mark> ortakçılıkla Yahudilere bırakılır; <mark>Fedek</mark> savaşmadan teslim olur. Bir kadın Peygamber'e <mark>zehirli koyun eti</mark> ikram eder. Aynı günlerde <mark>Hz. Ca'fer</mark> Habeşistan'dan döner.</p>
+      </div>
+    </div>
+    <div class="scene">
+      <div class="y">8</div>
+      <div>
+        <h3>Üç sancak, bir kılıç, açılan kapı</h3>
+        <p><mark>Mûte</mark>'de (seriyye) sancak elden ele: <mark>Zeyd → Ca'fer → Revâha</mark>; üçü de şehit. Ca'fer'in iki kolu kesilir, ona "<mark>Tayyâr</mark>" denir. Sancağı <mark>Hâlid</mark> alır, orduyu kurtarır: "<mark>Seyfullah</mark>". Aynı yıl Kureyş'in müttefiki <mark>Benî Bekir</mark>, Müslümanların müttefiki <mark>Huzâa</mark>'ya saldırır; antlaşma bozulur. <mark>Hâtıb</mark>'ın gizli mektubu yolda yakalanır (<mark>Mümtehine</mark>). <mark>20 Ramazan</mark>'da <mark>10.000</mark> kişi Mekke'ye girer: "<mark>Ebû Süfyan'ın evine</mark> giren güvendedir." <mark>360 put</mark> kırılır, <mark>Bilâl</mark> Kâbe'nin damında ezan okur, herkese "<mark>Gidiniz, serbestsiniz</mark>" denir. Şevval'de <mark>Huneyn</mark>: <mark>12.000</mark> kişi sayısına güvenir, vadide pusuya düşer; <mark>Hz. Abbas</mark>'ın gür sesiyle toparlanır. Düşman <mark>Hevâzin ve Sakîf</mark>, komutanları <mark>Mâlik b. Avf</mark>. Ganimet <mark>Ci'râne</mark>'de dağıtılır. Kaçanlar <mark>Tâif</mark>'e kapanır; surlara <mark>mancınık</mark> kurulur.</p>
+      </div>
+    </div>
+    <div class="scene">
+      <div class="y">9</div>
+      <div>
+        <h3>Sıcakta 30 bin</h3>
+        <p>Recep, kavurucu sıcak, hurmaların toplanma vakti: <mark>Tebük</mark>. Bizans'a karşı <mark>30.000</mark> kişi, adı <mark>Ceyşü'l-usre</mark> (zorluk ordusu). <mark>Hz. Osman</mark> develer bağışlar, Ebû Bekir malının tamamını, Ömer yarısını getirir. Medine'de <mark>Hz. Ali</mark> kalır. Tebük'te 20 gün beklenir, <mark>savaş olmaz</mark>; çevredeki kasabalar <mark>cizye</mark> antlaşması yapar. Dönüşte <mark>Mescid-i Dırâr</mark> yıkılır. Geri kalan üç kişi <mark>50 gün</mark> "KaHiM" çeker. Bu, <mark>son gazvedir</mark>. Sure: <mark>Tevbe</mark>. Aynı yıl hac farz olur; Peygamber Tebük'ten yeni döndüğü için gitmez, <mark>hac emiri Hz. Ebû Bekir</mark> olur.</p>
+      </div>
+    </div>
+    <div class="scene">
+      <div class="y">11</div>
+      <div>
+        <h3>Son seriyye</h3>
+        <p>Genç <mark>Usâme b. Zeyd</mark>, <mark>Mûte şehitlerinin intikamı</mark> için Bizans'a gidecek orduyu bekler; babası Zeyd de Mûte'de şehit olmuştu. Peygamber vefat eder; orduyu <mark>Hz. Ebû Bekir</mark> yola çıkarır ve komutanı değiştirme tekliflerini "Onu Resûlullah tayin etti" diyerek reddeder. Bu, Hz. Peygamber'in hazırladığı <mark>son seriyyedir</mark>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gazveler" aria-labelledby="gazve-baslik">
+  <h2 id="gazve-baslik">Büyük gazveler: tarih ve ayrıntı</h2>
+  <p class="lead">Hicrî tarih önce, miladî yaklaşık karşılığı yanında.</p>
+  <div class="cards">
+
+    <article class="g">
+      <div class="g-head"><h3>Bedir</h3><span class="g-date">17 Ramazan 2 H. · Mart 624</span></div>
+      <dl>
+        <dt>Sebep</dt><dd>Ebû Süfyan'ın Şam'dan dönen kervanı; kervan kaçtı, Ebû Cehil ordusuyla geldi.</dd>
+        <dt>Kuvvet</dt><dd>Müslüman <span class="num">305</span> (yaygın rivayet <span class="num">313</span>) · Müşrik <span class="num">~950–1000</span></dd>
+        <dt>Öne çıkan</dt><dd>Hubâb b. Münzir'in kuyular tavsiyesi; Sa'd b. Muâz'ın gölgelik (arîş) önerisi; mübareze: Hamza, Ali, Ubeyde b. Hâris karşısında Utbe, Şeybe, Velîd. Ebû Cehil'i Afrâ'nın oğulları Muâz ve Muavviz yere serdi, başını Abdullah b. Mes'ûd kesti (bir rivayette öldürenler Muâz b. Amr b. Cemûh ile Muâz b. Afrâ).</dd>
+        <dt>Sonuç</dt><dd><span class="num">14</span> şehit (6 muhacir, 8 ensar) · müşrik <span class="num">70</span> ölü, <span class="num">70</span> esir. Esirler fidyeyle; fidye ödeyemeyen, okuma yazma bilen esir 10 Müslüman çocuğa öğreterek serbest.</dd>
+        <dt>Sure</dt><dd>Enfâl. Günün adı "Yevmü'l-furkân".</dd>
+        <dt>Not</dt><dd>Hz. Osman, hasta eşi Hz. Rukiyye yüzünden katılamadı; ganimetten payı verildi, Bedir ehlinden sayıldı.</dd>
+      </dl>
+      <p class="hook">17'sinde iftar, 313 masa; 14 eksik, 70 devrik, 70 bağlı.</p>
+    </article>
+
+    <article class="g">
+      <div class="g-head"><h3>Uhud</h3><span class="g-date">7 Şevval 3 H. (rivayet 11) · Mart 625</span></div>
+      <dl>
+        <dt>Sebep</dt><dd>Kureyş'in Bedir'in intikamını alma isteği.</dd>
+        <dt>Kuvvet</dt><dd>Müslüman <span class="num">1000 → 700</span> (Abdullah b. Übey 300 kişiyle döndü) · Müşrik <span class="num">3000</span>, komutan Ebû Süfyan; süvaride Hâlid b. Velîd ve İkrime.</dd>
+        <dt>İstişare</dt><dd>Hz. Peygamber Medine'de savunmayı istedi (Abdullah b. Übey de); Bedir'e katılamayan gençler ve Hz. Hamza dışarı çıkmak istedi. Çoğunluğa uyuldu. ÖSYM bunu "çoğunluk görüşüne uyulan istişare" örneği olarak sordu.</dd>
+        <dt>Okçular</dt><dd>Ayneyn tepesi, <span class="num">50</span> okçu, komutan Abdullah b. Cübeyr. "Yerinizden ayrılmayın" emrini Hz. Peygamber verdi. Tepe boşalınca Hâlid arkadan sardı.</dd>
+        <dt>Şehitler</dt><dd><span class="num">~70</span>. Hz. Hamza (Vahşî, "Seyyidü'ş-şühedâ"), Mus'ab b. Umeyr (sancaktar), Hanzala ("Gasîlü'l-melâike"), Abdullah b. Cahş.</dd>
+        <dt>Öne çıkan</dt><dd>Hz. Peygamber yaralandı, dişi kırıldı; Nesîbe (Ümmü Umâre) onu korudu. Ertesi gün Hamrâülesed'e kadar takip.</dd>
+        <dt>Sure</dt><dd>Âl-i İmrân (121–179).</dd>
+      </dl>
+      <p class="hook">3'te 3000; 1000'den 300 döndü, 700 kaldı; 50 okçu tepede, 70 şehit yerde.</p>
+    </article>
+
+    <article class="g">
+      <div class="g-head"><h3>Hendek <span class="tag">Ahzâb</span></h3><span class="g-date">Şevval 5 H. · Mart 627</span></div>
+      <dl>
+        <dt>Düşman</dt><dd>Kureyş + Gatafan + Yahudiler (Benî Nadîr'den Huyey b. Ahtab kışkırttı) = Ahzâb, <span class="num">10–12.000</span>. Müslüman <span class="num">3000</span>.</dd>
+        <dt>Taktik</dt><dd>Hendek fikri Selmân-ı Fârisî'nin (İran usulü). Kuşatma yaklaşık <span class="num">20</span> gün (rivayetler 15–27).</dd>
+        <dt>Öne çıkan</dt><dd>Amr b. Abdüved'i Hz. Ali öldürdü. Nuaym b. Mes'ûd ittifakı bozdu; soğuk ve fırtına kuşatmayı bitirdi.</dd>
+        <dt>Kayıp</dt><dd><span class="num">6</span> şehit; Sa'd b. Muâz okla yaralandı, sonra vefat etti.</dd>
+        <dt>Sonrası</dt><dd>"Artık onlar bize değil, biz onlara gideceğiz." Kureyş'in son saldırısı. Hemen ardından Kurayza kuşatması.</dd>
+        <dt>Sure</dt><dd>Ahzâb.</dd>
+      </dl>
+      <p class="hook">5'te Selmân'ın küreği; 10 bine 3 bin; Ali tek, Nuaym fitil, rüzgâr son söz.</p>
+    </article>
+
+    <article class="g">
+      <div class="g-head"><h3>Hudeybiye <span class="tag">antlaşma</span></h3><span class="g-date">Zilkade 6 H. · Mart 628</span></div>
+      <dl>
+        <dt>Durum</dt><dd>Savaş değil. Umre için <span class="num">1400–1500</span> kişi ihramlı yola çıktı.</dd>
+        <dt>Biat</dt><dd>Elçi Hz. Osman'ın öldürüldüğü haberi üzerine Semure ağacı altında Rıdvan Biatı (Fetih 18).</dd>
+        <dt>Taraflar</dt><dd>Kureyş adına Süheyl b. Amr; metni Hz. Ali yazdı.</dd>
+        <dt>Maddeler</dt><dd><span class="num">10</span> yıl savaş yok · bu yıl dönülecek, gelecek yıl <span class="num">3</span> gün umre · Mekke'den kaçıp gelen iade edilir, Medine'den giden iade edilmez · kabileler istediği tarafla ittifak yapar (Huzâa Müslümanlarla, Benî Bekir Kureyş'le).</dd>
+        <dt>İade maddesi</dt><dd>Mekke'den kaçan Ebû Basîr ve arkadaşları Kureyş kervanlarına zarar verince bu maddenin kaldırılmasını Mekkeliler istedi (ÖSYM sorusu).</dd>
+        <dt>Sure</dt><dd>Fetih ("feth-i mübîn"). Ertesi yıl (7 H.) Umretü'l-kazâ.</dd>
+      </dl>
+      <p class="hook">Ağaç altında biat, 10 yıl barış, 3 gün umre.</p>
+    </article>
+
+    <article class="g">
+      <div class="g-head"><h3>Hayber</h3><span class="g-date">Muharrem 7 H. çıkış, Safer'de fetih · 628</span></div>
+      <dl>
+        <dt>Hedef</dt><dd>Medine'nin kuzeyindeki Yahudi kaleleri; Hendek'i kışkırtanların merkezi.</dd>
+        <dt>Kuvvet</dt><dd>Müslüman <span class="num">~1500</span> (1200 piyade, 300 süvari).</dd>
+        <dt>Öne çıkan</dt><dd>Sancak Hz. Ali'ye verildi; Kâmûs kalesini fethetti, Merhab'ı öldürdü.</dd>
+        <dt>Sonuç</dt><dd>Toprak, ürünün yarısı karşılığında Yahudilere bırakıldı (ortakçılık). Fedek savaşmadan teslim oldu (fey).</dd>
+        <dt>Diğer</dt><dd>Zeyneb bint Hâris'in zehirli koyun eti; Hz. Safiyye ile evlilik; Hz. Ca'fer ve Habeşistan muhacirlerinin dönüşü.</dd>
+      </dl>
+      <p class="hook">7'de kale kapısı Ali'nin elinde, hurma yarı yarıya.</p>
+    </article>
+
+    <article class="g">
+      <div class="g-head"><h3>Mûte <span class="tag">seriyye</span></h3><span class="g-date">Cemaziyelevvel 8 H. · Eylül 629</span></div>
+      <dl>
+        <dt>Sebep</dt><dd>Elçi Hâris b. Umeyr el-Ezdî'nin Gassânî emîri Şurahbîl tarafından öldürülmesi.</dd>
+        <dt>Kuvvet</dt><dd>Müslüman <span class="num">3000</span>; karşıda çok büyük Bizans–Gassânî ordusu.</dd>
+        <dt>Komutanlar</dt><dd>Hz. Peygamber'in belirlediği sıra: Zeyd b. Hârise → Ca'fer b. Ebû Tâlib → Abdullah b. Revâha. Üçü şehit olunca askerler Hâlid b. Velîd'i seçti.</dd>
+        <dt>Unvanlar</dt><dd>Ca'fer: "Tayyâr", "Zü'l-cenâhayn". Hâlid: "Seyfullah".</dd>
+        <dt>Önemi</dt><dd>Bizans'la ilk savaş. Hz. Peygamber katılmadığı için seriyyedir.</dd>
+      </dl>
+      <p class="hook">Ze-Ca-Re, sonra Hâlid.</p>
+    </article>
+
+    <article class="g">
+      <div class="g-head"><h3>Mekke'nin Fethi</h3><span class="g-date">20 Ramazan 8 H. · Ocak 630</span></div>
+      <dl>
+        <dt>Sebep</dt><dd>Kureyş müttefiki Benî Bekir'in Müslüman müttefiki Huzâa'ya saldırısı; Hudeybiye bozuldu.</dd>
+        <dt>Hâtıb</dt><dd>Hâtıb b. Ebû Beltea'nın Kureyş'e gizli mektubu yakalandı; Mümtehine suresi.</dd>
+        <dt>Kuvvet</dt><dd><span class="num">10.000</span> kişi. Ebû Süfyan Merrüzzahrân'da Müslüman oldu.</dd>
+        <dt>Öne çıkan</dt><dd>"Ebû Süfyan'ın evine giren güvendedir." Kâbe'deki <span class="num">360</span> put kırıldı ("Hak geldi, bâtıl yok oldu", İsrâ 81). Bilâl Kâbe'nin damında ezan okudu.</dd>
+        <dt>Af</dt><dd>"Bugün size kınama yok; gidiniz, serbestsiniz." Affedilen Mekkelilere tulekâ denir.</dd>
+        <dt>Sure</dt><dd>Nasr (suredeki "feth" Mekke'nin fethine işaret eder; Vedâ haccında indiği görüşü ağır basar).</dd>
+      </dl>
+      <p class="hook">Ramazan'da 10 bin, 360 put, tek cümlelik af.</p>
+    </article>
+
+    <article class="g">
+      <div class="g-head"><h3>Huneyn ve Tâif</h3><span class="g-date">Şevval 8 H. · Şubat 630</span></div>
+      <dl>
+        <dt>Düşman</dt><dd>Hevâzin ve Sakîf; komutan Mâlik b. Avf.</dd>
+        <dt>Kuvvet</dt><dd>Müslüman <span class="num">12.000</span> (10.000 + 2000 Mekkeli; bunların bir kısmı henüz Müslüman değildi). Sayıya güvenildi (Tevbe 25–26).</dd>
+        <dt>Öne çıkan</dt><dd>Sabah karanlığında vadide pusu, ordu dağıldı; Hz. Abbas'ın "Ey Semure ağacının ashabı!" çağrısıyla toparlandı.</dd>
+        <dt>Ganimet</dt><dd>Çok büyük ganimet (24.000 deve, 40.000 koyun); Ci'râne'de dağıtıldı, müellefe-i kulûba fazla pay verildi. Ensar'a: "Onlar deve ve koyunla, siz Resûlullah ile dönüyorsunuz."</dd>
+        <dt>Evtâs</dt><dd>Kaçanların bir kısmı Evtâs'ta toplandı; Ebû Âmir el-Eş'arî komutasındaki birlik onları dağıttı.</dd>
+        <dt>Tâif</dt><dd>Kaçanlar Tâif'e kapandı; yaklaşık <span class="num">1 ay</span> kuşatma (rivayet 15–40 gün). Mancınık İslam tarihinde ilk kez burada kullanıldı, debbâbe de. Kuşatma kaldırıldı. Sakîf 9 H.'de heyetle Müslüman oldu.</dd>
+      </dl>
+      <p class="hook">12 bin sayıya güvendi; Abbas'ın sesi, Ci'râne'nin ganimeti, Tâif'in mancınığı.</p>
+    </article>
+
+    <article class="g">
+      <div class="g-head"><h3>Tebük</h3><span class="g-date">Recep 9 H. · Ekim 630</span></div>
+      <dl>
+        <dt>Sebep</dt><dd>Bizans'ın saldırı hazırlığı haberi. Kıtlık, sıcak, hasat zamanı: "Ceyşü'l-usre".</dd>
+        <dt>Kuvvet</dt><dd><span class="num">30.000</span>, en kalabalık ordu. Hz. Osman büyük bağış; Ebû Bekir malının tamamı, Ömer yarısı.</dd>
+        <dt>Öne çıkan</dt><dd>Binek bulamayıp ağlayanlar: Bekkâûn (Tevbe 92). Hz. Ali Medine'de bırakıldı: "Mûsâ'ya göre Hârûn gibi." (Bir rivayette genel vekil Muhammed b. Mesleme.)</dd>
+        <dt>Sonuç</dt><dd>Tebük'te ~<span class="num">20</span> gün; savaş olmadı. Eyle, Cerbâ, Ezruh ile cizye antlaşması; Hâlid Dûmetülcendel'e gönderildi. Dönüşte Mescid-i Dırâr yıkıldı (Tevbe 107–110).</dd>
+        <dt>Geri kalanlar</dt><dd>Ka'b b. Mâlik, Hilâl b. Ümeyye, Mürâre b. Rebî: <span class="num">50</span> gün boykot, tövbe kabul (Tevbe 118).</dd>
+        <dt>Önemi</dt><dd>Son gazve. Sure: Tevbe (38–39: sefere çağrı).</dd>
+        <dt>Sonrası</dt><dd>9 H.'de hac farz oldu. Hz. Peygamber Tebük'ten yeni döndüğü için gitmedi; 300 kişilik kafileye hac emiri olarak Hz. Ebû Bekir'i gönderdi (ÖSYM 2020).</dd>
+      </dl>
+      <p class="hook">9'da 30 bin, sıcakta usre; savaş yok; KaHiM 50 gün.</p>
+    </article>
+
+  </div>
+</section>
+
+<section id="karsilastir" aria-labelledby="kars-baslik">
+  <h2 id="kars-baslik">Karıştırılanlar yan yana</h2>
+  <p class="lead">Bedir, Uhud ve Hendek en çok birbirine karışır. Satır satır farkına bak.</p>
+  <div class="tbl">
+    <table class="cmp">
+      <thead><tr><th scope="col"></th><th scope="col">Bedir</th><th scope="col">Uhud</th><th scope="col">Hendek</th></tr></thead>
+      <tbody>
+        <tr><td>Yıl / ay</td><td class="n">2 H. Ramazan</td><td class="n">3 H. Şevval</td><td class="n">5 H. Şevval</td></tr>
+        <tr><td>Müslüman</td><td class="n">305–313</td><td class="n">1000 → 700</td><td class="n">3000</td></tr>
+        <tr><td>Düşman</td><td class="n">~1000</td><td class="n">3000</td><td class="n">10–12.000</td></tr>
+        <tr><td>Şehit</td><td class="n">14</td><td class="n">~70</td><td class="n">6</td></tr>
+        <tr><td>Kilit kişi</td><td>Hubâb b. Münzir (kuyular)</td><td>Abdullah b. Cübeyr (okçular)</td><td>Selmân-ı Fârisî (hendek)</td></tr>
+        <tr><td>Sonuç</td><td>Zafer</td><td>Okçu hatasıyla kayıp</td><td>Kuşatma dağıldı</td></tr>
+        <tr><td>Sure</td><td>Enfâl</td><td>Âl-i İmrân</td><td>Ahzâb</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tbl">
+    <table class="cmp">
+      <thead><tr><th scope="col"></th><th scope="col">Mekke'nin Fethi</th><th scope="col">Huneyn</th><th scope="col">Tebük</th></tr></thead>
+      <tbody>
+        <tr><td>Yıl / ay</td><td class="n">8 H. Ramazan</td><td class="n">8 H. Şevval</td><td class="n">9 H. Recep</td></tr>
+        <tr><td>Müslüman</td><td class="n">10.000</td><td class="n">12.000</td><td class="n">30.000</td></tr>
+        <tr><td>Karşı taraf</td><td>Kureyş</td><td>Hevâzin, Sakîf</td><td>Bizans</td></tr>
+        <tr><td>Çatışma</td><td>Çok az</td><td>Sert, pusu</td><td>Yok</td></tr>
+        <tr><td>Sure</td><td>Nasr, Mümtehine</td><td>Tevbe 25–26</td><td>Tevbe</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="kucuk" aria-labelledby="kucuk-baslik">
+  <h2 id="kucuk-baslik">Küçük gazveler</h2>
+  <div class="tbl">
+    <table class="stack">
+      <thead><tr><th scope="col">Gazve</th><th scope="col">Tarih</th><th scope="col">Bilinmesi gereken</th></tr></thead>
+      <tbody>
+        <tr><td>Ebvâ (Veddân)</td><td class="n">Safer 2 H.</td><td>İlk gazve. Savaş yok, Benî Damre ile antlaşma.</td></tr>
+        <tr><td>Uşeyre</td><td class="n">Cem.evvel 2 H.</td><td>Benî Müdlic ile antlaşma; bir rivayete göre Hz. Ali'ye "Ebû Türâb" denmesi.</td></tr>
+        <tr><td>Benî Kaynuka</td><td class="n">Şevval 2 H.</td><td>Medine Sözleşmesi'ni ilk bozan ve sürülen ilk Yahudi kabilesi: çarşıda Müslüman kadını taciz ettiler, onu koruyan sahabiyi şehit ettiler. 15 gün kuşatma; Ezriât'a (Şam) gittiler.</td></tr>
+        <tr><td>Sevîk</td><td class="n">Zilhicce 2 H.</td><td>Ebû Süfyan'ın baskını; kaçarken kavrulmuş un (sevîk) torbalarını bıraktılar.</td></tr>
+        <tr><td>Benî Nadîr</td><td class="n">Rebiülevvel 4 H.</td><td>Suikast girişimi; sürgün (çoğu Suriye'ye, bir kısmı Hayber'e); Haşr suresi; topraklar fey, muhacirlere dağıtıldı.</td></tr>
+        <tr><td>Zâtürrikâ</td><td class="n">Muharrem 5 H. (rivayet 4 / 7)</td><td>Ayaklara bez sarıldı; korku namazı (salâtü'l-havf) kılındı. İlk kılındığı yer olarak bilinir, Usfân diyenler de var.</td></tr>
+        <tr><td>Bedrü'l-mev'id</td><td class="n">Zilkade 4 H.</td><td>Ebû Süfyan'ın Uhud'da verdiği randevu; müşrikler gelmedi.</td></tr>
+        <tr><td>Dûmetülcendel</td><td class="n">Rebiülevvel 5 H.</td><td>Kuzeye sefer; savaş olmadı, Hz. Peygamber hızla geri döndü.</td></tr>
+        <tr><td>Benî Mustalık (Müreysî)</td><td class="n">Şaban 5 H. (rivayet 6)</td><td>Su başında muhacir–ensar kavgası, Hz. Peygamber cahiliye asabiyetini kınadı; Abdullah b. Übey'in sözleri (Münâfikûn); İfk olayı (Nûr); Hz. Cüveyriye ile evlilik, esirler serbest.</td></tr>
+        <tr><td>Benî Kurayza</td><td class="n">Zilkade 5 H.</td><td>Hendek'teki ihanet; kuşatma 15–25 gün, teslim Zilhicce'de; hakem Sa'd b. Muâz.</td></tr>
+        <tr><td>Benî Lihyân</td><td class="n">6 H.</td><td>Recî şehitlerinin intikamı için; kabile dağlara kaçtı, çarpışma olmadı.</td></tr>
+        <tr><td>Gâbe (Zûkared)</td><td class="n">6 H.</td><td>Medine'nin develerine yapılan baskının takibi; Seleme b. Ekva' öne çıktı.</td></tr>
+        <tr><td>Tâif</td><td class="n">Şevval 8 H.</td><td>Huneyn'in devamı; yaklaşık 1 ay; mancınık ilk kez kullanıldı, debbâbe de; kuşatma kaldırıldı.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Gazve sayısı için en yaygın görüş 27'dir. İçinde çarpışma olan gazve sayısı 9'dur (kod: "Bedirli Usta…").</p>
+</section>
+
+<section id="seriyyeler" aria-labelledby="seriyye-baslik">
+  <h2 id="seriyye-baslik">Önemli seriyyeler</h2>
+  <p class="lead">Seriyye: Hz. Peygamber'in katılmadığı, komutan tayin ederek gönderdiği birlik. Gazve: bizzat katıldığı sefer.</p>
+  <div class="tbl">
+    <table class="stack">
+      <thead><tr><th scope="col">Seriyye</th><th scope="col">Tarih</th><th scope="col">Komutan</th><th scope="col">Bilinmesi gereken</th></tr></thead>
+      <tbody>
+        <tr><td>Sîfülbahr</td><td class="n">Ramazan 1 H.</td><td data-label="Komutan">Hz. Hamza</td><td>İlk seriyye, ilk sancak (DİA'nın ağırlıklı görüşü; bir rivayette Ubeyde'nin seriyyesi). 30 kişi; Mecdî b. Amr araya girdi, çatışma olmadı.</td></tr>
+        <tr><td>Râbiğ</td><td class="n">Şevval 1 H.</td><td data-label="Komutan">Ubeyde b. Hâris</td><td>İslam'da ilk ok: Sa'd b. Ebû Vakkâs.</td></tr>
+        <tr><td>Nahle</td><td class="n">Recep 2 H.</td><td data-label="Komutan">Abdullah b. Cahş</td><td>Mühürlü mektup; ilk ganimet, ilk esir, ilk öldürülen düşman (Amr b. Hadramî). Haram ay tartışması, Bakara 217.</td></tr>
+        <tr><td>Recî</td><td class="n">Safer 4 H.</td><td data-label="Komutan">Âsım b. Sâbit (rivayet Mersed)</td><td>Adal ve Kâre'nin ihaneti; Hubeyb b. Adî öldürülmeden önce iki rekât namaz kıldı.</td></tr>
+        <tr><td>Bi'r-i Maûne</td><td class="n">Safer 4 H.</td><td data-label="Komutan">Münzir b. Amr</td><td>70 kurrâ şehit (Âmir b. Tufeyl); Hz. Peygamber bir ay kunût-ı nâzile okudu.</td></tr>
+        <tr><td>Mûte</td><td class="n">Cem.evvel 8 H.</td><td data-label="Komutan">Zeyd → Ca'fer → Revâha → Hâlid</td><td>Bizans'la ilk savaş; Hâlid "Seyfullah", Ca'fer "Tayyâr".</td></tr>
+        <tr><td>Zâtüsselâsil</td><td class="n">Cem.âhir 8 H.</td><td data-label="Komutan">Amr b. Âs</td><td>Takviye birlikte Ebû Ubeyde, Ebû Bekir ve Ömer de vardı.</td></tr>
+        <tr><td>Put seriyyeleri</td><td class="n">Ramazan 8 H.</td><td data-label="Komutan">Hâlid · Amr b. Âs · Sa'd b. Zeyd</td><td>Fetihten sonra: Hâlid Uzzâ'yı, Amr Süvâ'yı, Sa'd Menât'ı yıktı.</td></tr>
+        <tr><td>Evtâs</td><td class="n">Şevval 8 H.</td><td data-label="Komutan">Ebû Âmir el-Eş'arî</td><td>Huneyn'den kaçan Hevâzinlileri dağıttı; komutan şehit oldu, birliği Ebû Mûsâ el-Eş'arî devraldı.</td></tr>
+        <tr><td>Usâme</td><td class="n">11 H.</td><td data-label="Komutan">Usâme b. Zeyd</td><td>Son seriyye. Amaç Mûte şehitlerinin intikamı. Hz. Peygamber hazırladı; vefatından sonra Hz. Ebû Bekir gönderdi ve komutanı değiştirme tekliflerini reddetti (ÖSYM 2022).</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="ilkler" aria-labelledby="ilk-baslik">
+  <h2 id="ilk-baslik">İlkler, sonlar ve sureler</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">İlk / son</th><th scope="col">Cevap</th></tr></thead>
+      <tbody>
+        <tr><td>Muâhât (kronolojide en başta)</td><td>1 H.: muhacir ile ensar kardeşleştirildi. ÖSYM sırası: Muâhât → Uhud → Hayber → Mescid-i Dırâr</td></tr>
+        <tr><td>Medine Sözleşmesi</td><td>1 H.: Medine'deki Müslümanlar ile Yahudiler arasında; ilk bozan Kaynuka</td></tr>
+        <tr><td>İlk gazve</td><td>Ebvâ (Veddân), 2 H.</td></tr>
+        <tr><td>İlk seriyye, ilk sancak</td><td>Hz. Hamza seriyyesi, 1 H.</td></tr>
+        <tr><td>İlk ok</td><td>Sa'd b. Ebû Vakkâs (Ubeyde b. Hâris seriyyesi)</td></tr>
+        <tr><td>İlk ganimet, ilk esir</td><td>Nahle seriyyesi</td></tr>
+        <tr><td>İlk büyük savaş</td><td>Bedir</td></tr>
+        <tr><td>Sürülen ilk Yahudi kabilesi</td><td>Benî Kaynuka</td></tr>
+        <tr><td>İlk korku namazı</td><td>Zâtürrikâ (Usfân diyenler de var)</td></tr>
+        <tr><td>Bizans'la ilk savaş</td><td>Mûte</td></tr>
+        <tr><td>Mancınığın ilk kullanıldığı kuşatma</td><td>Tâif, 8 H.</td></tr>
+        <tr><td>Son gazve</td><td>Tebük, 9 H.</td></tr>
+        <tr><td>Son seriyye</td><td>Usâme b. Zeyd, 11 H.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">Olay</th><th scope="col">Sure / ayet</th></tr></thead>
+      <tbody>
+        <tr><td>Nahle seriyyesi</td><td>Bakara 217</td></tr>
+        <tr><td>Bedir</td><td>Enfâl</td></tr>
+        <tr><td>Uhud</td><td>Âl-i İmrân (ÖSYM tuzağı: "Uhud – Bakara" yanlış)</td></tr>
+        <tr><td>Benî Nadîr</td><td>Haşr</td></tr>
+        <tr><td>Benî Mustalık (İfk)</td><td>Nûr, Münâfikûn</td></tr>
+        <tr><td>Hendek</td><td>Ahzâb</td></tr>
+        <tr><td>Hudeybiye, Rıdvan Biatı</td><td>Fetih</td></tr>
+        <tr><td>Hâtıb'ın mektubu</td><td>Mümtehine</td></tr>
+        <tr><td>Mekke'nin Fethi</td><td>Nasr; İsrâ 81 (putlar kırılırken)</td></tr>
+        <tr><td>Huneyn</td><td>Tevbe 25–26</td></tr>
+        <tr><td>Tebük</td><td>Tevbe (38–39: sefere çağrı, 92: ağlayanlar, 107: Mescid-i Dırâr, 118: geri kalan üç kişi)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="test" aria-labelledby="test-baslik">
+  <h2 id="test-baslik">Kendini test et</h2>
+  <p class="lead">Soruyu oku, cevabı içinden söyle, sonra soruya dokun. Bilemediklerini işaretle ve sadece onlara dön. İşaretlerin bu cihazda saklanır.</p>
+  <div class="quiz-bar">
+    <button class="btn" id="f-all" type="button" aria-pressed="true">Tümü</button>
+    <button class="btn" id="f-again" type="button" aria-pressed="false">Bilemediklerim</button>
+    <button class="btn" id="shuffle" type="button">Karıştır</button>
+    <button class="btn" id="reset" type="button">Sıfırla</button>
+    <span class="score" id="score" aria-live="polite"></span>
+  </div>
+  <div class="qs" id="qs"></div>
+  <p class="hint" id="empty" hidden>Bilemediğin soru kalmadı. "Tümü"ne dönüp karıştırarak bir tur daha at.</p>
+</section>
+
+<section id="plan" aria-labelledby="plan-baslik">
+  <h2 id="plan-baslik">Sınavdan önceki gün</h2>
+  <p class="lead">Az zaman varken en çok işe yarayan şey, okuduktan sonra bakmadan hatırlamaya çalışmak. Tekrarları aralıklı yap.</p>
+  <ol class="plan">
+    <li><span class="t">Şimdi</span><span>Yıl şeridini ve kodları oku, sonra hikâyeyi sahne sahne canlandırarak oku (25 dk).</span></li>
+    <li><span class="t">Hemen sonra</span><span>Sayfayı kapat, 7 büyük gazveyi yılıyla birlikte bir kâğıda yaz. Sonra test kartlarını bir tur çöz.</span></li>
+    <li><span class="t">+1 saat</span><span>Kodları ezbere yaz. Karşılaştırma tablosuna bak, satırları kapatıp söyle.</span></li>
+    <li><span class="t">+3 saat</span><span>Seriyyeler ve "ilkler" tablosu. Sonra sadece "Bilemediklerim" kartlarına dön.</span></li>
+    <li><span class="t">Yatmadan</span><span>Bilemediklerim kartları bir tur daha, 10 dk. Fazlasını yapma.</span></li>
+    <li><span class="t">Gece</span><span>En az 7 saat uyu. Öğrenilen bilgi uykuda yerleşir; uykusuz son tekrar, kazandırdığından fazlasını götürür.</span></li>
+    <li><span class="t">Sınav sabahı</span><span>Sadece yıl şeridi ve kodlar, 5 dk.</span></li>
+  </ol>
+  <p class="note">Kaynaklar arasında bazı sayılar ve tarihler farklı rivayet edilir (Bedir'deki Müslüman sayısı, Uhud'un günü, Hendek'teki düşman sayısı, Tâif kuşatmasının süresi, Zâtürrikâ'nın yılı gibi). Bu sayfa TDV İslâm Ansiklopedisi (DİA) ve ÖSYM'nin geçmiş DHBT, ÖABT ve MBSTS sorularıyla karşılaştırıldı; bulunan ÖSYM cevaplarıyla çelişen bilgi yok. Farklı rivayetlerde DİA'nın tercihi yazıldı.</p>
+</section>
+
+</div>
+
+<script>
+const CARDS = [
+  ["Gazve ile seriyye arasındaki fark nedir?", "Gazve: Hz. Peygamber'in bizzat katıldığı sefer. Seriyye: katılmayıp komutan tayin ederek gönderdiği birlik."],
+  ["İlk gazve hangisidir?", "Ebvâ (Veddân), Safer 2 H. Savaş olmadı, Benî Damre ile antlaşma yapıldı."],
+  ["İlk seriyye ve ilk sancak kime aittir?", "Hz. Hamza seriyyesi (Sîfülbahr, Ramazan 1 H.). Bir rivayette ilk sancak Ubeyde b. Hâris'in."],
+  ["İslam'da ilk oku kim attı, hangi seriyyede?", "Sa'd b. Ebû Vakkâs, Ubeyde b. Hâris seriyyesinde (Râbiğ)."],
+  ["İlk ganimet ve ilk esir hangi seriyyede alındı?", "Nahle seriyyesi, komutan Abdullah b. Cahş, Recep 2 H. (Bakara 217)."],
+  ["Bedir'in tarihi?", "17 Ramazan 2 H. (Mart 624)."],
+  ["Bedir'de Müslüman şehit sayısı ve müşrik kaybı?", "14 şehit; müşrikler 70 ölü, 70 esir."],
+  ["Bedir'de okuma yazma bilen esirlerin fidyesi neydi?", "Her biri 10 Müslüman çocuğa okuma yazma öğretmek."],
+  ["Bedir'de kuyuların tutulmasını kim önerdi?", "Hubâb b. Münzir."],
+  ["Uhud'da okçuların komutanı, sayısı ve yeri?", "Abdullah b. Cübeyr; 50 okçu; Ayneyn tepesi."],
+  ["Uhud'a giderken ordudan ayrılan kimdir, kaç kişi kaldı?", "Abdullah b. Übey, 300 kişiyle döndü; 700 kişi kaldı."],
+  ["\"Seyyidü'ş-şühedâ\" kimdir, kim şehit etti?", "Hz. Hamza; Uhud'da Vahşî şehit etti."],
+  ["\"Gasîlü'l-melâike\" (melekler tarafından yıkanan) kimdir?", "Hanzala, Uhud şehidi."],
+  ["Hendek kazma fikri kimindir?", "Selmân-ı Fârisî."],
+  ["Hendek'te düşman ittifakını bozan kimdir?", "Nuaym b. Mes'ûd."],
+  ["Hendek'te Amr b. Abdüved'i kim öldürdü?", "Hz. Ali."],
+  ["Benî Kurayza hakkında hüküm veren hakem kimdir?", "Sa'd b. Muâz."],
+  ["İfk hadisesi hangi gazvenin dönüşünde oldu, hangi sure indi?", "Benî Mustalık (Müreysî) gazvesi; Nûr suresi."],
+  ["Rıdvan Biatı nerede ve neden yapıldı?", "Hudeybiye'de, Semure ağacı altında; Hz. Osman'ın öldürüldüğü haberi üzerine (Fetih 18)."],
+  ["Hudeybiye'yi Kureyş adına kim imzaladı, metni kim yazdı?", "Süheyl b. Amr; metni Hz. Ali yazdı."],
+  ["Hudeybiye'de savaşmama süresi kaç yıl?", "10 yıl."],
+  ["Hayber'de Kâmûs kalesini fetheden ve Merhab'ı öldüren?", "Hz. Ali."],
+  ["Hayber arazisi nasıl düzenlendi?", "Ürünün yarısı karşılığında Yahudilere bırakıldı (ortakçılık). Fedek savaşsız teslim oldu (fey)."],
+  ["Mûte'de komutan sırası?", "Zeyd b. Hârise → Ca'fer b. Ebû Tâlib → Abdullah b. Revâha → (askerlerin seçimiyle) Hâlid b. Velîd."],
+  ["\"Seyfullah\" unvanı kime, hangi savaşta verildi?", "Hâlid b. Velîd'e, Mûte'de."],
+  ["Mekke'nin Fethi'nin sebebi?", "Kureyş müttefiki Benî Bekir'in Müslüman müttefiki Huzâa'ya saldırması; Hudeybiye bozuldu."],
+  ["Fetihten önce Kureyş'e gizli mektup yazan kimdir, hangi sure indi?", "Hâtıb b. Ebû Beltea; Mümtehine suresi."],
+  ["Mekke'nin Fethi'nin tarihi ve ordunun sayısı?", "20 Ramazan 8 H. (Ocak 630); 10.000 kişi."],
+  ["Huneyn'de düşman kabileler ve komutanları?", "Hevâzin ve Sakîf; Mâlik b. Avf."],
+  ["Huneyn'de Müslümanların sayısı ve bununla ilgili ayet?", "12.000; sayılarına güvendiler (Tevbe 25–26)."],
+  ["Huneyn ganimeti nerede dağıtıldı?", "Ci'râne'de."],
+  ["Mancınığın ilk kez kullanıldığı kuşatma hangisi?", "Tâif kuşatması (8 H.)."],
+  ["\"Ceyşü'l-usre\" hangi ordudur?", "Tebük ordusu (9 H.), zorluk ordusu; 30.000 kişi."],
+  ["Tebük'e mazeretsiz katılmayan üç sahabi?", "Ka'b b. Mâlik, Hilâl b. Ümeyye, Mürâre b. Rebî. 50 gün boykot, Tevbe 118."],
+  ["Son gazve ve son seriyye?", "Son gazve Tebük (9 H.); son seriyye Usâme b. Zeyd seriyyesi (11 H.)."],
+  ["Recî' vakasında öldürülmeden önce iki rekât namaz kılan sahabi?", "Hubeyb b. Adî."],
+  ["Bi'r-i Maûne'den sonra Hz. Peygamber ne yaptı?", "Bir ay boyunca kunût-ı nâzile okudu."],
+  ["İçinde çarpışma olan 9 gazve?", "Bedir, Uhud, Mustalık, Hendek, Kurayza, Hayber, Fetih, Huneyn, Tâif."],
+  ["Benî Nadîr neden sürüldü, nereye gittiler, hangi sure?", "Hz. Peygamber'e suikast girişimi; çoğu Suriye'ye, bir kısmı Hayber'e gitti; Haşr suresi."],
+  ["Korku namazının ilk kılındığı sefer?", "Zâtürrikâ olarak bilinir (Muharrem 5 H.); ilk uygulamanın Usfân'da olduğunu söyleyenler de var (Nisâ 102)."],
+  ["Medine Sözleşmesi'ni bozan, Müslüman kadını taciz edip onu koruyan sahabiyi şehit eden Yahudi kabilesi?", "Benî Kaynuka (Şevval 2 H.); Medine'den sürülen ilk Yahudi kabilesi."],
+  ["Uhud öncesi istişarede ne oldu?", "Hz. Peygamber Medine'de savunmayı istedi; gençler ve Hz. Hamza dışarı çıkmak istedi; Hz. Peygamber çoğunluğun görüşüne uydu."],
+  ["Uhud'da okçulara \"yerinizden ayrılmayın\" emrini kim verdi?", "Hz. Peygamber. Okçuların komutanı Abdullah b. Cübeyr'di."],
+  ["9 H.'de hacca emir olarak kim gönderildi, neden?", "Hz. Ebû Bekir; Hz. Peygamber Tebük'ten yeni döndüğü için gitmedi."],
+  ["Hudeybiye'deki iade maddesinin kaldırılmasını kim istedi, neden?", "Mekkeliler; Ebû Basîr ve arkadaşları Kureyş kervanlarına zarar veriyordu."],
+  ["Benî Mustalık dönüşünde su başındaki kavgada Hz. Peygamber neyi kınadı?", "Cahiliye asabiyetini (muhacir–ensar diye taraf tutmayı)."],
+  ["Usâme seriyyesinin amacı neydi, Hz. Ebû Bekir ne yaptı?", "Mûte şehitlerinin intikamı. Ebû Bekir orduyu gönderdi, komutanı değiştirme tekliflerini reddetti."],
+  ["Sırala: Mescid-i Dırâr'ın yıkılması, Hayber, Uhud, Muâhât", "Muâhât (1 H.) → Uhud (3 H.) → Hayber (7 H.) → Mescid-i Dırâr (9 H.)."],
+  ["Elçinin öldürülmesi üzerine düzenlenen sefer hangisi?", "Mûte (8 H.): elçi Hâris b. Umeyr'i Gassânî Şurahbîl öldürmüştü."],
+  ["Hangi gazve–sure eşleşmesi yanlış: Bedir–Enfâl, Uhud–Bakara, Hendek–Ahzâb, Huneyn–Tevbe?", "Uhud–Bakara yanlış; Uhud Âl-i İmrân suresinde anlatılır."]
+];
+
+const KEY = "gazve-kart-durum-v1";
+let state = {};
+try { state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { state = {}; }
+function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+let order = CARDS.map((_, i) => i);
+let filter = "all";
+const qs = document.getElementById("qs");
+const empty = document.getElementById("empty");
+const score = document.getElementById("score");
+
+function updateScore() {
+  const vals = Object.values(state);
+  const k = vals.filter(v => v === "known").length;
+  const a = vals.filter(v => v === "again").length;
+  score.textContent = k + " bildim · " + a + " tekrar · " + CARDS.length + " soru";
+}
+
+function render() {
+  qs.innerHTML = "";
+  const list = order.filter(i => filter === "all" || state[i] === "again");
+  empty.hidden = list.length > 0;
+  list.forEach((i, n) => {
+    const [q, a] = CARDS[i];
+    const el = document.createElement("div");
+    el.className = "q" + (state[i] ? " " + state[i] : "");
+    const ask = document.createElement("button");
+    ask.type = "button"; ask.className = "q-ask"; ask.id = "q-" + i;
+    ask.setAttribute("aria-expanded", "false");
+    ask.innerHTML = '<span class="i">' + String(n + 1).padStart(2, "0") + '</span><span></span>';
+    ask.lastChild.textContent = q;
+    const ans = document.createElement("div");
+    ans.hidden = true;
+    ans.innerHTML = '<p class="q-ans"></p><div class="q-row"><button type="button" class="btn ok">Bildim</button><button type="button" class="btn no">Tekrar et</button></div>';
+    ans.querySelector(".q-ans").textContent = a;
+    ask.addEventListener("click", () => {
+      ans.hidden = !ans.hidden;
+      ask.setAttribute("aria-expanded", String(!ans.hidden));
+    });
+    ans.querySelector(".ok").addEventListener("click", () => { state[i] = "known"; save(); render(); });
+    ans.querySelector(".no").addEventListener("click", () => { state[i] = "again"; save(); render(); });
+    el.append(ask, ans);
+    qs.append(el);
+  });
+  updateScore();
+}
+
+function setFilter(f) {
+  filter = f;
+  document.getElementById("f-all").setAttribute("aria-pressed", String(f === "all"));
+  document.getElementById("f-again").setAttribute("aria-pressed", String(f === "again"));
+  render();
+}
+document.getElementById("f-all").addEventListener("click", () => setFilter("all"));
+document.getElementById("f-again").addEventListener("click", () => setFilter("again"));
+document.getElementById("shuffle").addEventListener("click", () => {
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  render();
+});
+document.getElementById("reset").addEventListener("click", () => { state = {}; save(); render(); });
+render();
+</script>
+</body>
+</html>
